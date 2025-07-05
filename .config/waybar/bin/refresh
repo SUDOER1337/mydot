@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Kill and restart Waybar
+pkill -x waybar && waybar &
+
+# Kill and restart Dunst
+pkill -x dunst && dunst &
+
+# Optional: Send notification that refresh is done
+notify-send "✅ Hyprland Refreshed" "Waybar and Dunst restarted."

@@ -1,0 +1,9 @@
+cat << EOF > .gitignore
+*.log
+*.bak
+*.cache
+*.tmp
+*.lock
+*.DS_Store
+EOF
+

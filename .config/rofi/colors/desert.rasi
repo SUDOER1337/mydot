@@ -1,0 +1,15 @@
+/**
+ *
+ * Theme  : Desert
+ * Author : SUDOER1337
+ *
+ **/
+
+* {
+    background:     rgba(38,38,38,0.7);
+    background-alt: rgba(38,38,38,1);  
+    foreground:     #D4AF7FFF;
+    selected:       #D4AF7FFF;  
+    active:         #F6BE7DFF;  
+    urgent:         #FF6E7BFF;
+}

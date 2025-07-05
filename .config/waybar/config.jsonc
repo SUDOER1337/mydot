@@ -1,0 +1,8 @@
+[
+  {
+    "output": [ "eDP-1", "HDMI-A-1" ],
+    "include": [
+      "~/.config/waybar/bars/top.jsonc"
+    ]
+  }
+]
