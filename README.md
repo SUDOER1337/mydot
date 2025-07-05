@@ -5,9 +5,10 @@ This is my personal dotfiles setup !
 ## 󰋩 Screenshots
 
 ### 🔶 My Hyprland Desktop
-![Screenshot1](Screenshots/Terminal.png)
-![Screenshot2](Screenshots/Folder.png)
-![Screenshot3](Screenshots/Menus.png)
+![Screenshot1](Screenshots/Image1.png)
+![Screenshot2](Screenshots/Image2.png)
+![Screenshot3](Screenshots/Image3.png)
+![Screenshot4](Screenshots/Image4.png)
 
 -  [Hyprland](https://github.com/hyprwm/Hyprland)
 -  Waybar
