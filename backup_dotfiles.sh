@@ -13,6 +13,8 @@ CONFIGS=(
   "kitty"
   "waybar"
   "rofi"
+  "fish"
+  "fastfetch"
 )
 
 # ─── Start Backup ─────────────────────────────────────────────────────
