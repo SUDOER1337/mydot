@@ -16,7 +16,7 @@ CONFIGS=(
 )
 
 # ─── Start Backup ─────────────────────────────────────────────────────
-echo "🗂️  Backing up config files to: $DEST"
+echo "  Backing up config files to: $DEST"
 mkdir -p "$DEST"
 
 for config in "${CONFIGS[@]}"; do
@@ -24,12 +24,12 @@ for config in "${CONFIGS[@]}"; do
   DEST_PATH="$DEST/$config"
 
   if [ -d "$SRC" ]; then
-    echo "📦 Backing up $config..."
+    echo " Backing up $config..."
     cp -r "$SRC" "$DEST_PATH"
   else
-    echo "⚠️  Skipping $config (not found)"
+    echo "  Skipping $config (not found)"
   fi
 done
 
-echo "✅ Backup completed at $DEST"
+echo " Backup completed at $DEST"
 
