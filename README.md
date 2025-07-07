@@ -30,8 +30,8 @@ Feel free to borrow, fork or anything!
 ```bash
 cd ~/mydot
 chmod +x ./Scripts/install.sh
-./Scripts/install.sh  
-
+./Scripts/install.sh 
+``````
 ## 󰆓 Backup
 
 To update:
