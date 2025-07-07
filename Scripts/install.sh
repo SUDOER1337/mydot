@@ -15,6 +15,8 @@ PACMAN_PACKAGES=(
   swww
   swaync
   hyprland
+  hyprpaper
+  hyprlock
   grimblast
   wl-clipboard
 )
@@ -26,6 +28,17 @@ AUR_PACKAGES=(
   nwg-look
   papirus-icon-theme
 )
+
+CONFIG_DIRS=(
+  nvim
+  kitty
+  waybar
+  hypr
+  rofi
+  swaync
+)
+
+CONFIG_SOURCE_DIR="./configs"  # Customize if your configs are in a different folder
 
 # ─── FUNCTIONS ──────────────────────────────────────
 
@@ -45,6 +58,25 @@ function install_aur_helper() {
   fi
 }
 
+function move_configs() {
+  header "Copying config files to ~/.config..."
+
+  mkdir -p ~/.config
+
+  for dir in "${CONFIG_DIRS[@]}"; do
+    SRC="$CONFIG_SOURCE_DIR/$dir"
+    DEST="$HOME/.config/$dir"
+
+    if [ -d "$SRC" ]; then
+      echo "Installing config for $dir..."
+      rm -rf "$DEST"
+      cp -r "$SRC" "$DEST"
+    else
+      echo "Warning: $SRC does not exist, skipping."
+    fi
+  done
+}
+
 # ─── MAIN ───────────────────────────────────────────
 
 header "Installing pacman packages..."
@@ -57,4 +89,7 @@ done
 header "Installing AUR packages with paru..."
 paru -S --needed --noconfirm "${AUR_PACKAGES[@]}"
 
+move_configs
+
 header "Done! System is ready 🎉"
+

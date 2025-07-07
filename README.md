@@ -25,7 +25,14 @@ something here are kinda specfic , like i have autostart for my custom mouse dri
 Feel free to borrow, fork or anything!  
  ⭐ if you find something useful
 
-## 🔄 Backup
+##  Install
+
+```bash
+cd ~/mydot
+chmod +x ./Scripts/install.sh
+./Scripts/install.sh  
+
+## 󰆓 Backup
 
 To update:
 
