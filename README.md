@@ -2,6 +2,9 @@
 
 This is my personal dotfiles setup !
 
+The bar is based on [gdots](https://github.com/niksingh710/gdots)
+and alot of ohter peoples project that i regret cant remember
+
 ## 󰋩 Screenshots
 
 ### 🔶 My Hyprland Desktop
