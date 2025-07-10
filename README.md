@@ -2,7 +2,7 @@
 
 This is my personal dotfiles setup !
 
-The bar is based on [gdots](https://github.com/niksingh710/gdots)
+The Waybar is based on [gdots](https://github.com/niksingh710/gdots)
 and alot of ohter peoples project that i regret cant remember
 
 ## 󰋩 Screenshots
@@ -28,14 +28,15 @@ something here are kinda specfic , like i have autostart for my custom mouse dri
 Feel free to borrow, fork or anything!  
  ⭐ if you find something useful
 
-##  Install
+##    Install
 
 ```bash
-cd ~/mydot
+git clone https://github.com/SUDOER1337/mydot.git ~/.mydot
+cd ~/.mydot
 chmod +x ./Scripts/install.sh
 ./Scripts/install.sh 
 ``````
-## 󰆓 Backup
+## 󰆓   Backup
 
 To update:
 

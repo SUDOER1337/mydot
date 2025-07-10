@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e  # Exit if any command fails
+set -e  # Exit on error
 
 # ─── CONFIG ─────────────────────────────────────────
 PACMAN_PACKAGES=(
@@ -38,7 +38,16 @@ CONFIG_DIRS=(
   swaync
 )
 
-CONFIG_SOURCE_DIR="./configs"  # Customize if your configs are in a different folder
+DOTFILES=(
+  .zshrc
+  .p10k.zsh
+  .bashrc
+  .profile
+  .gitconfig
+)
+
+CONFIG_SOURCE_DIR="./.config"  # Your repo’s .config dir
+DOTFILES_SOURCE_DIR="./"       # Root of your repo
 
 # ─── FUNCTIONS ──────────────────────────────────────
 
@@ -59,7 +68,7 @@ function install_aur_helper() {
 }
 
 function move_configs() {
-  header "Copying config files to ~/.config..."
+  header "Copying configs to ~/.config..."
 
   mkdir -p ~/.config
 
@@ -68,11 +77,26 @@ function move_configs() {
     DEST="$HOME/.config/$dir"
 
     if [ -d "$SRC" ]; then
-      echo "Installing config for $dir..."
+      echo "  Installing config for $dir..."
       rm -rf "$DEST"
       cp -r "$SRC" "$DEST"
     else
-      echo "Warning: $SRC does not exist, skipping."
+      echo "⚠️  Warning: $SRC does not exist, skipping."
+    fi
+  done
+}
+
+function move_dotfiles() {
+  header "Copying dotfiles to ~/"
+  for file in "${DOTFILES[@]}"; do
+    SRC="$DOTFILES_SOURCE_DIR/$file"
+    DEST="$HOME/$file"
+
+    if [ -f "$SRC" ]; then
+      echo "  Installing $file..."
+      cp "$SRC" "$DEST"
+    else
+      echo "⚠️  Warning: $SRC does not exist, skipping."
     fi
   done
 }
@@ -90,6 +114,7 @@ header "Installing AUR packages with paru..."
 paru -S --needed --noconfirm "${AUR_PACKAGES[@]}"
 
 move_configs
+move_dotfiles
 
-header "Done! System is ready 🎉"
+header "✅ Done !"
 
