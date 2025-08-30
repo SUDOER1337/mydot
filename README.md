@@ -7,38 +7,35 @@ and alot of ohter people dotfiles that i regret cant remember
 
 ## 󰋩 Gallery
 
-A quick look at how my setup feels in action.  
-*(click to view images in full resolution)*
-
 ### 🖥️ Hyprland Desktop
-Idle workspace with a clean Waybar and pastel tones.  
+Idle workspace showing the overall desktop setup with Waybar and pastel accents.  
 ![Idle](Screenshots/Idle.png)
 
-###  Terminals
-Kitty running with my chosen theme and powerlevel10k prompt.  
-![Terminals](Screenshots/Kitty.png)
+---
 
-###  App Launcher
-Rofi-Wayland menu styled to match the color scheme.  
+###  Rofi & Menus
+Rofi menus and popups separated to highlight customizations:  
+
+#### Launcher
+Rofi main menu styled for my theme.  
 ![Rofi](Screenshots/Rofi.png)
 
-###  Notifications
-Swaync (pinned to v11 for stability) with a minimal look.  
-![Swaync](Screenshots/Swaync.png)
+#### Powermenu
+Centered shutdown/reboot/logout prompt.  
+![Powermenu](Screenshots/Powermenu.png)
 
-###  Utilities
-- Calculator styled to blend with the desktop.  
+#### Utilities
+Calculator and emoji picker for daily tasks.  
 ![Calc](Screenshots/Calc.png)  
-- Nerdy emoji picker for quick reactions.  
 ![Emoji](Screenshots/Emoji-Nerdy.png)
 
-###  Waybar
-Lightweight, tidy status bar based on [gdots](https://github.com/niksingh710/gdots).  
-![Waybar](Screenshots/Waybar.png)
+---
 
-### ⏻ Powermenu
-Simple, centered shutdown/reboot/logout prompt.  
-![Powermenu](Screenshots/Powermenu.png)
+###  Terminals & Status
+Kitty terminal theme and Btop for monitoring system resources.  
+![Terminals](Screenshots/Kitty.png)  
+![Waybar](Screenshots/Waybar.png)  
+![Swaync](Screenshots/Swaync.png)
 
 -  [Hyprland](https://github.com/hyprwm/Hyprland)
 -  Waybar
