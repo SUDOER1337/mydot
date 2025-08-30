@@ -8,8 +8,8 @@ and alot of ohter people dotfiles that i regret cant remember
 ## 󰋩 Gallery
 
 ### 🖥️ Hyprland Desktop
-Idle workspace showing the overall desktop setup with Waybar and pastel accents.  
 ![Idle](Screenshots/Idle.png)
+![Terminals](Screenshots/Kitty.png)  
 
 ---
 
@@ -33,7 +33,6 @@ Calculator and emoji picker for daily tasks.
 
 ###  Terminals & Status
 Kitty terminal theme and Btop for monitoring system resources.  
-![Terminals](Screenshots/Kitty.png)  
 ![Waybar](Screenshots/Waybar.png)  
 ![Swaync](Screenshots/Swaync.png)
 
