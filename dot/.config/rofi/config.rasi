@@ -1,0 +1,11 @@
+/** Basic config file **/
+
+configuration {
+  show-icons: true;
+  icon-theme: "Papirus";
+  display-drun: "  ";
+  display-window: "﩯 ";
+  display-combi: "  ";
+  modi: "drun,window,calc,nerdy";
+}
+@theme "themes/desert.rasi"

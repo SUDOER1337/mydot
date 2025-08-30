@@ -1,0 +1,268 @@
+@define-color foreground       #d4af7f;
+@define-color background       rgba(35, 32, 30, 0.93);
+@define-color background-alt   rgba(45, 45, 45, 0.9);
+@define-color module-bg        rgba(80, 65, 60, 0.32);
+@define-color module-bg-hover  rgba(230, 160, 90, 0.2);
+@define-color active-bg        rgba(230, 170, 90, 0.1);
+@define-color active-fg        #ee8253;
+@define-color faded-highlight  rgba(230, 170, 90, 0.3);
+@define-color faded-inactive   rgba(230, 170, 90, 0.2);
+@define-color warning          #cf9022;
+@define-color critical         #c64d4f;
+@define-color blink-active     #b87333;
+
+@define-color highlight      rgba(80, 65, 60, 0.32);
+@define-color active         rgba(230,170,90,0.1);
+@define-color hover          rgba(230,160,90,0.2);
+@define-color text-muted     rgba(230,170,90,0.32);
+@define-color text-faded     rgba(230,170,90,0.2);
+@define-color blink-active   #b87333;
+@define-color blink-red      #c64d4f;
+@define-color blink-yellow   #cf9022;
+
+* {
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  font-family: "OpenDyslexic Nerd Font";
+  font-size: 14px;
+  min-height: 0px;
+  min-width: 26px;
+  padding: 0;
+  text-shadow: none;
+}
+
+#custom-separator {
+  padding: 0;
+  font-size: 17px;
+}
+
+window#waybar {
+  background: @background;
+  border-radius: 0;
+  transition-duration: 0.5s;
+  transition-property: background-color;
+}
+
+menu,
+tooltip {
+  background: @background-alt;
+  border-radius: 14px;
+  border: 2px solid @foreground;
+  color: @foreground;
+  font-size: 10px;
+  padding: 15px;
+}
+
+menu label,
+tooltip label {
+  color: @foreground;
+  font-size: 14px;
+  padding: 10px;
+}
+
+#submap,
+#tray > .needs-attention,
+#battery.discharging.warning,
+#battery.discharging.critical,
+#bluetooth.discoverable,
+#bluetooth.discovering,
+#bluetooth.pairable {
+  animation-direction: alternate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  border-radius: 7px;
+  color: @foreground;
+  transition-duration: 0.5s;
+  transition-property: background-color;
+}
+
+.modules-left {
+  background: transparent;
+  margin: 12px 5px 0 5px;
+}
+
+.modules-center {
+  background: transparent;
+  margin: 0;
+}
+
+.modules-right {
+  background: transparent;
+  margin: 5px 5px 12px 5px;
+}
+
+#timer,
+#custom-timeleft,
+#language,
+#battery,
+#custom-updates,
+#custom-cputemp,
+#disk,
+#memory,
+#cpu,
+#clock {
+  font-family: "Digital-7 Mono";
+  font-weight: bold;
+}
+
+#timer,
+#custom-timeleft {
+  color: @foreground;
+  margin: 0;
+  padding: 0 0 3px 0;
+  font-size: 22px;
+}
+
+#language {
+  font-size: 15px;
+  padding: 5px 0px 2px 1px;
+}
+
+#battery,
+#clock {
+  border-radius: 7px;
+  margin: 4px 2px;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+#clock {
+  background: rgba(80, 65, 60, 0.55);
+  font-size: 24px;
+  padding: 5px 0;
+}
+
+#battery,
+#custom-swaync,
+#custom-github,
+#language,
+#gcpu,
+#ram,
+#custom-weather,
+#custom-recorder,
+#connection,
+#cnoti,
+#brightness,
+#power,
+#updater,
+#tray,
+#audio,
+#power-profiles-daemon,
+#privacy,
+#pulseaudio.mic,
+#pulseaudio-slider,
+#custom-cheatsheet,
+#custom-rofi,
+#custom-hyprkill,
+#idle_inhibitor,
+#custom-colorpicker,
+#custom-hyprsunset,
+#custom-ddcutil,
+#custom-gamma,
+#sound,
+#submap {
+  background: @highlight;
+  border-radius: 7px;
+  color: @foreground;
+  padding: 4px 1;
+  margin: 4px 2px;
+}
+
+/* For custom Paddings*/ 
+#tray,
+#language{
+  padding: 10 1 10 1px;
+}
+
+#custom-ddcutil
+#custom-gamma,
+#custom-hyprsunset {
+  padding: 4 0 4 2px;
+}
+
+#custom-gamma {
+  padding: 7 0 7 2px;
+}
+
+#workspaces {
+  margin: 0 2px;
+  font-size: 20px;
+  color: @text-faded;
+}
+
+#workspaces button {
+  background: @highlight;
+  margin: 3px 0;
+  border-radius: 5px;
+  padding: 8px 2px;
+  color: @text-muted;
+  transition: all 0.5s ease-in-out;
+}
+
+#workspaces button.active {
+  background: @active;
+  padding: 8px 0;
+  color: @foreground;
+  border-radius: 5px;
+}
+
+#workspaces button:hover {
+  background: @hover;
+  color: rgba(230,170,90,0.5);
+}
+
+#custom-dmark {
+  color: rgba(230, 170, 90, 0.3);
+}
+
+#backlight-slider slider,
+#pulseaudio-slider slider {
+  all: unset;
+  background-color: transparent;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+  all: unset;
+  border-radius: 7px;
+  min-height: 100px;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+  all: unset;
+  background-color: @foreground;
+  border-radius: 7px;
+  min-width: 10px;
+  padding: 1px 0;
+}
+
+/* Keyframes */
+@keyframes blink-active {
+  to {
+    background-color: @blink-active;
+    color: @foreground;
+  }
+}
+
+@keyframes blink-red {
+  to {
+    background-color: @blink-red;
+    color: @foreground;
+  }
+}
+
+@keyframes blink-yellow {
+  to {
+    background-color: @blink-yellow;
+    color: @foreground;
+  }
+}
+

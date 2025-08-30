@@ -1,0 +1,559 @@
+{
+  // General Bar Settings
+  "layer": "top",
+  "position": "left",
+  "margin": "0 0 0 0",
+  "reload_style_on_change": true,
+
+  // Module Layout
+  "modules-left": [
+    "group/clockmod",
+    "group/timer",
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "group/music"
+  ],
+
+  "modules-center": [
+  ],
+
+  "modules-right": [
+    "custom/recorder",
+    "group/gcpu",
+    "group/ram",
+    "group/audio",
+    "group/monitor",
+    "hyprland/language",
+    "group/connection",
+    "group/together",
+    "tray",
+    "battery"
+  ],
+  
+  "custom/swaync": {
+    "tooltip": true,
+    "tooltip-format":"Open Swaync Center",
+    "format": "",
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  // Workspaces Module
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      //"active": "◆",   // focused workspace
+      //"empty": "◇",    // empty but available
+      //"default": "◈"   // has windows but not active
+
+          "1": "",   // browser
+          "2": "",   // terminal
+          "3": "",   // folder
+          "4": "",   // note
+          "5": "󰍡",   // chat
+          "6": "󰸳"    // game
+    },
+    "persistent-workspaces": {
+      "*": 6
+    },
+    "active-only": false,
+    "all-outputs": false,
+    "show-special": false,
+    "special-visible-only": false,
+    "sort-by": "id",
+    "window-rewrite": {},
+    "window-rewrite-default": "",
+    "format-window-separator": "",
+    "move-to-monitor": false,
+    "ignore-workspaces": []
+  },
+
+  //Clock
+  "clock": {
+  "format": "{:%H\n%M}",
+  "tooltip-format": "<tt><small>{:%A, %d %B %Y}\n\n{calendar}</small></tt>"
+  },
+
+  // Submap Indicator (like Hyprland mode changes)
+  "hyprland/submap": {
+    "format": "<b>󰇘</b>",
+    "max-length": 8,
+    "tooltip": true
+  },
+
+  // System Info Drawer Group
+  "group/info": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/dmark",
+      "group/gcpu",
+      "memory"
+    ]
+  },
+
+  // Tray Drawer Group
+  "group/tray": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/dmark",
+      "tray"
+    ]
+  },
+
+  // Drawer Arrow Marker
+  "custom/dmark": {
+    "format": "",
+    "tooltip": false
+  },
+
+  // CPU Stats Group
+  "group/gcpu": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/cpu-icon",
+      "custom/cputemp",
+      "cpu"
+    ]
+  },
+
+  "custom/cpu-icon": {
+    "format": "󰻠",
+    "tooltip": false
+  },
+
+  "custom/cputemp": {
+    "format": "{}",
+    "exec": "~/.config/waybar/bin/temp.sh",
+    "interval": 5,
+    "return-type": "json"
+  },
+
+  "cpu": {
+    "format": "<b>{usage}󱉸</b>",
+    "on-click": "kitty -e btop"
+  },
+
+   // RAM Stats Group
+  "group/ram": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/ram-icon",
+      "memory"
+    ]
+  },
+
+  "custom/ram-icon":{
+    "format": "",
+    "tooltip": false
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": "{}%",
+    "max-length": 10
+  },
+
+  // Recorder (e.g. wl-screenrec status)
+  "custom/recorder": {
+    "format": "{}",
+    "interval": "once",
+    "exec": "echo ''",
+    "tooltip": "false",
+    "exec-if": "pgrep 'wl-screenrec'",
+    "on-click": "recorder",
+    "signal": 4
+  },
+
+  // Brightness Group
+  "group/brightness": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "backlight",
+      "backlight/slider"
+    ]
+  },
+
+  //Light control only work for Laptop 
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon}",
+    "format-icons": [
+      "","","","","","","",
+      "","","","","","","",""
+    ],
+    "on-scroll-down": "brightnessctl s 5%-",
+    "on-scroll-up": "brightnessctl s +5%",
+    "tooltip": true,
+    "tooltip-format": "Brightness: {percent}%",
+    "smooth-scrolling-threshold": 1
+  },
+
+  "backlight/slider": {
+    "min": 5,
+    "max": 100,
+    "orientation": "vertical",
+    "device": "intel_backlight"
+  },
+    
+  //Brightness Via DDCUTIL
+  "custom/ddcutil": {
+  "format": "󰃠",
+  "exec": "~/.config/waybar/bin/brightness.sh",
+  "interval": 1,
+  "on-click": "~/.config/waybar/bin/brightness.sh up",
+  "on-click-right": "~/.config/waybar/bin/brightness.sh down",
+  "tooltip": true,
+  "tooltip-format": "Brightness {}% , Left Click/Right click to Adjust"
+  },
+
+
+  // Audio & Notifications Group
+  "group/sound": {
+    "orientation": "inherit",
+    "modules": [
+      "group/audio",
+      "custom/notifications"
+    ]
+  },
+
+  // Volume Control
+  "group/audio": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "pulseaudio",
+      "pulseaudio#mic",
+      "pulseaudio/slider"
+    ]
+  },
+
+  // Notifications (if used with dunst etc.)
+  "group/cnoti": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/github"
+    ]
+  },
+
+  // Network Group
+  "group/connection": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/vpn",
+      "group/network"
+    ]
+  },
+
+  "group/network": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "network",
+      "network#speed"
+    ]
+  },
+
+  // Utility Group (weather, color picker, etc.)
+  "group/together": {
+    "orientation": "inherit",
+    "modules": [
+      "group/utils"
+    ]
+  },
+
+  "group/utils": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/swaync",
+      "custom/weather",
+      "custom/colorpicker",
+      "idle_inhibitor",
+      "custom/hyprkill",
+      "group/updater"
+    ]
+  },
+
+  // Power Options (battery, profiles)
+  "group/power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "battery",
+      "power-profiles-daemon"
+    ]
+  },
+
+  // System Tray
+  "tray": {
+    "icon-size": 17,
+    "spacing": 10
+  },
+
+  // Audio Sink
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-bluetooth": "{icon}",
+    "tooltip-format": "{volume}% {icon} | {desc}",
+    "format-muted": "󰖁",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "󰋌",
+      "headset": "󰋌",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click-right": "pavucontrol",
+    "on-click": "amixer set Master toggle",
+    "smooth-scrolling-threshold": 1
+  },
+
+  // Microphone
+  "pulseaudio#mic": {
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": "󰍭",
+    "tooltip-format": "{volume}% {format_source}",
+    "on-click": "pactl set-source-mute 0 toggle",
+    "on-scroll-down": "pactl set-source-volume 0 -1%",
+    "on-scroll-up": "pactl set-source-volume 0 +1%"
+  },
+
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "vertical"
+  },
+
+  // Network Module
+  "network": {
+    "format": "{icon}",
+    "format-icons": {
+      "wifi": ["󰤨"],
+      "ethernet": ["󰈀"],
+      "disconnected": ["󰖪"]
+    },
+    "format-wifi": "󰤨",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "format-linked": "󰈁",
+    "tooltip": true,
+    "tooltip-format": "Launch nm-connection-editor",
+    "on-click": "nm-connection-editor"
+  },
+
+  // Network Speed
+  "network#speed": {
+    "format": " {bandwidthDownBits} ",
+    "rotate": 90,
+    "interval": 5,
+    "tooltip-format": "{ipaddr}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)   \n{ipaddr}"
+  },
+
+  //Language
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "EN",
+    "format-th": "TH",
+    "keyboard-name": "sem-usb-keyboard"
+  },
+  
+  //Group Updater 
+    
+  "group/updater": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/updater-icon",
+      "custom/updates"
+    ]
+  },
+  
+  "custom/updater-icon": {
+  "format": "",
+  "tooltip": false
+  },
+  
+  "custom/updates": {
+  "exec": "~/.config/waybar/bin/updatecheck.sh",
+  "return-type": "json",
+  "interval": 1000,
+  "on-click": "~/.config/waybar/bin/updatecheck.sh --check",
+  "on-click-right": "~/.config/waybar/bin/updatecheck.sh --update",
+  "format": "{text}",
+  "tooltip": true
+  },
+  //
+
+  "custom/vpn": {
+    "format": "{} ",
+    "exec": "~/.config/waybar/bin/vpn",
+    "return-type": "json",
+    "interval": 5
+  },
+  "custom/hotspot": {
+    "format": "{} ",
+    "exec": "~/.config/waybar/bin/hotspot",
+    "return-type": "json",
+    "on-click": "hash wihotspot && wihotspot",
+    "interval": 5
+  },
+  "custom/mark": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/colorpicker": {
+    "format": "󰌁",
+    "return-type": "json",
+    "on-click": "hyprpicker",
+     "tooltip": true,
+    "tooltip-format": "Colorpicker via hyprpicker"
+  },
+  "custom/hyprkill": {
+    "format": "{}",
+    "interval": "once",
+    "exec": "echo '󰅙\nKill clients using hyrpctl kill'",
+    "on-click": "sleep 1 & hyprctl kill"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip-format-activated": "Idle Inhibitor is active",
+    "tooltip-format-deactivated": "Idle Inhibitor is not active",
+    "format-icons": {
+      "activated": "󰔡",
+      "deactivated": "󰔢"
+    }
+  },
+
+  //Group Music
+  "group/music": {
+    "orientation": "inherit",
+     "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "custom/music",
+      "custom/playpause"
+    ]
+  },
+
+  //Group music  
+  //
+
+  //Rofi Buttons
+  "custom/launcher": {
+    "format": "󱓞",
+    "on-click": "~/.config/rofi/launchers/launcher.sh",
+    "tooltip": true,
+    "tooltip-format":"Show launcher" 
+  },
+  "custom/power": {
+    "format": "⏻",
+    "on-click": "~/.config/rofi/powermenu/powermenu.sh",
+    "tooltip": true,
+    "tooltip-format":"Show powermenu" 
+  },
+
+
+ //Group Hyprsunset 
+ 
+  "group/monitor": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/hyprsunset",
+      "custom/ddcutil",
+      "custom/gamma"
+    ]
+  },
+  
+
+ "custom/hyprsunset": {
+  "interval": 1,
+  "format": "󱩌",  // Just an icon
+  "tooltip": true,
+  "tooltip-format":"󱩌 Toggle hyprsunset, Scroll to Adjust by 100",
+  "on-click": "hyprsunset",
+  "on-scroll-up": "hyprctl hyprsunset temperature +100",
+  "on-scroll-down": "hyprctl hyprsunset temperature -100"
+  },
+  
+  //Control Monitor Brightness via hyprsunset gamma
+  "custom/gamma": {
+    "format": "{icon}",
+    "interval": 1,
+    "tooltip": true,
+    "tooltip-format":"Adjust Screen Brightness via gamma by 5",
+    "format-icons": [" 󰃟 "],
+    "on-click": "hyprctl hyprsunset gamma +100",
+    "on-scroll-up": "hyprctl hyprsunset gamma +5",
+    "on-scroll-down": "hyprctl hyprsunset gamma -5"
+    },
+
+  //Timer
+  
+  "group/clockmod": {
+    "orientation": "inherit",
+     "drawer": {
+      "transition-duration": 500,
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "clock",
+      "custom/timer",
+      "custom/timeleft"
+    ]
+  },
+
+  "custom/timer": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "Timer , Right click to cancel",
+    "on-click": "~/.config/rofi/timer/timer.sh",
+    "on-click-right": "~/.config/rofi/timer/kill_pomodoro.sh"
+  },
+
+  "custom/timeleft":{
+    "exec": "cat /tmp/pomodoro_timer.json",
+    "rotate": 90,
+    "interval": 1,
+    "format": "{}",
+    "on-click": "~/.config/rofi/timer/timer.sh",
+    "on-click-right": "~/.config/rofi/timer/kill_pomodoro.sh"
+  }
+  //
+}

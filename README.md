@@ -3,23 +3,52 @@
 This is my personal dotfiles setup !
 
 The Waybar is based on [gdots](https://github.com/niksingh710/gdots)
-and alot of ohter peoples project that i regret cant remember
+and alot of ohter people dotfiles that i regret cant remember
 
-## 󰋩 Screenshots
+## 󰋩 Gallery
 
-### 🔶 My Hyprland Desktop
-![Screenshot1](Screenshots/Image1.png)
-![Screenshot2](Screenshots/Image2.png)
-![Screenshot3](Screenshots/Image3.png)
-![Screenshot4](Screenshots/Image4.png)
+A quick look at how my setup feels in action.  
+*(click to view images in full resolution)*
+
+### 🖥️ Hyprland Desktop
+Idle workspace with a clean Waybar and pastel tones.  
+![Idle](Screenshots/Idle.png)
+
+###  Terminals
+Kitty running with my chosen theme and powerlevel10k prompt.  
+![Terminals](Screenshots/Kitty.png)
+
+###  App Launcher
+Rofi-Wayland menu styled to match the color scheme.  
+![Rofi](Screenshots/Rofi.png)
+
+###  Notifications
+Swaync (pinned to v11 for stability) with a minimal look.  
+![Swaync](Screenshots/Swaync.png)
+
+###  Utilities
+- Calculator styled to blend with the desktop.  
+![Calc](Screenshots/Calc.png)  
+- Nerdy emoji picker for quick reactions.  
+![Emoji](Screenshots/Emoji-Nerdy.png)
+
+###  Waybar
+Lightweight, tidy status bar based on [gdots](https://github.com/niksingh710/gdots).  
+![Waybar](Screenshots/Waybar.png)
+
+### ⏻ Powermenu
+Simple, centered shutdown/reboot/logout prompt.  
+![Powermenu](Screenshots/Powermenu.png)
 
 -  [Hyprland](https://github.com/hyprwm/Hyprland)
 -  Waybar
 -  Kitty
--  Swaync
+-  Swappy
+-  Swaync (Downgrade to 11)
 -  Btop
 -  Rofi
 
+Cursor: Bibata-Modern-Classic 24
 
 
 These are configured for my daily use on **CachyOS + Hyprland**
