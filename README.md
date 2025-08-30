@@ -7,17 +7,16 @@ and alot of ohter people dotfiles that i regret cant remember
 
 ## 󰋩 Gallery
 
-### 🖥️ Hyprland Desktop
+###  Hyprland Desktop
 ![Idle](Screenshots/Idle.png)
 ![Terminals](Screenshots/Kitty.png)  
 
 ---
 
 ###  Rofi & Menus
-Rofi menus and popups separated to highlight customizations:  
 
 #### Launcher
-Rofi main menu styled for my theme.  
+Just a launcher
 ![Rofi](Screenshots/Rofi.png)
 
 #### Powermenu
@@ -25,14 +24,13 @@ Centered shutdown/reboot/logout prompt.
 ![Powermenu](Screenshots/Powermenu.png)
 
 #### Utilities
-Calculator and emoji picker for daily tasks.  
+Calculator and emoji picker 
 ![Calc](Screenshots/Calc.png)  
 ![Emoji](Screenshots/Emoji-Nerdy.png)
 
 ---
 
-###  Terminals & Status
-Kitty terminal theme and Btop for monitoring system resources.  
+#### Waybar and Swaync
 ![Waybar](Screenshots/Waybar.png)  
 ![Swaync](Screenshots/Swaync.png)
 
