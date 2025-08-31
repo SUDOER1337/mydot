@@ -52,6 +52,9 @@ Feel free to borrow, fork or anything!
  ⭐ if you find something useful
 
 ##    Install
+```bash
+paru -S hyprland swww waybar-git rofi-wayland rofi-bluetooth-git rofi-wifi-menu-git aurutils hyprpaper hyprlock hypridle hyprsunset hyprpolkitagent archlinux-xdg-menu
+```
 
 ```bash
 git clone https://github.com/SUDOER1337/mydot.git ~/.mydot
